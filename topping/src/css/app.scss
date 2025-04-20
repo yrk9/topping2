@@ -1,1 +1,29 @@
 // app global css in SCSS form
+.roulette-title {
+    font-size: 2rem; /* 文字サイズを調整 */
+    font-weight: bold; /* 太字にする */
+    text-align: center; /* 中央揃え */
+    margin-bottom: 1rem; /* 下に余白を追加 */
+  }
+.roulette-explain {
+    font-size: 1.2rem; /* 文字サイズを調整 */
+    text-align: center; /* 中央揃え */
+    margin-bottom: 2rem; /* 下に余白を追加 */
+}
+
+.roulette-button {
+    display: block; /* ブロック要素にする */
+    margin: 0 auto; /* 中央揃え */
+    padding: 1rem 2rem; /* 上下左右に余白を追加 */
+    font-size: 1.5rem; /* 文字サイズを調整 */
+    background-color: #007bff; /* ボタンの背景色 */
+    color: white; /* ボタンの文字色 */
+    border: none; /* ボーダーなし */
+    border-radius: 5px; /* 角を丸くする */
+    cursor: pointer; /* カーソルをポインターにする */
+    transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+
+    &:hover {
+    background-color: #0056b3; /* ホバー時の背景色 */
+    }
+}

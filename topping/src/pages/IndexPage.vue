@@ -1,8 +1,8 @@
 <!-- filepath: /home/yorokan2/webpage/topping2/topping/src/pages/IndexPage.vue -->
 <template>
   <div>
-    <h1>トッピングルーレット</h1>
-    <div>ルーレットを回してトッピングを決めよう！
+    <h1 class = "roulette-title">トッピングルーレット</h1>
+    <div class = "roulette-explain">ルーレットを回してトッピングを決めよう！
       <RouletteComponent />
     </div>
   </div>
