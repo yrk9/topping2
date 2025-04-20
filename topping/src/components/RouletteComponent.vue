@@ -1,37 +1,36 @@
 <template>
   <div>
-    <p>{{ title }}</p>
     <ul>
-      <li v-for="todo in todos" :key="todo.id" @click="increment">
-        {{ todo.id }} - {{ todo.content }}
-      </li>
+      <button @click="onSpinRoulette">ルーレットを回す</button>
     </ul>
-    <p>Count: {{ todoCount }} / {{ meta.totalCount }}</p>
-    <p>Active: {{ active ? 'yes' : 'no' }}</p>
-    <p>Clicks on todos: {{ clickCount }}</p>
+    <p v-if="selectedItem">選ばれたトッピング: {{ selectedItem }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import type { Todo, Meta } from './models';
+import { ref } from 'vue';
 
-interface Props {
-  title: string;
-  todos?: Todo[];
-  meta: Meta;
-  active: boolean;
+interface RouletteItem {
+  id: number;
+  content: string;
 };
 
-const props = withDefaults(defineProps<Props>(), {
-  todos: () => []
-});
+const selectedItem = ref<string | null>(null);
 
-const clickCount = ref(0);
-function increment() {
-  clickCount.value += 1;
-  return clickCount.value;
+const rouletteItems: RouletteItem[] = [
+  { id: 1, content: 'トロ肉' },
+  { id: 2, content: 'ブロック肉' },
+  { id: 3, content: 'メンマ' },
+];
+
+function spinRoulette(): string {
+  const randomIndex: number = Math.floor(Math.random() * rouletteItems.length);
+  const selectedItem: string = rouletteItems[randomIndex]?.content || 'Default Item';
+  
+  return selectedItem;
 }
 
-const todoCount = computed(() => props.todos.length);
+function onSpinRoulette() {
+  selectedItem.value = spinRoulette();
+}
 </script>
